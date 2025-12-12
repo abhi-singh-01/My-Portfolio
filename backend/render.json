@@ -1,0 +1,6 @@
+{
+    "name": "portfolio-backend",
+    "env": "node",
+    "buildCommand": "npm install",
+    "startCommand": "npm start"
+}

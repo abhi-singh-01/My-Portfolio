@@ -1,0 +1,173 @@
+.leetcode {
+  background: var(--dark-surface);
+  position: relative;
+}
+
+.leetcode-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.leetcode-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.stat-card {
+  background: var(--dark-bg);
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.stat-card:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
+}
+
+.stat-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.leetcode-difficulty {
+  background: var(--dark-bg);
+  padding: 2rem;
+  border-radius: 15px;
+  border: 1px solid var(--border-color);
+}
+
+.leetcode-difficulty h3 {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.difficulty-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.difficulty-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.difficulty-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.difficulty-label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-transform: capitalize;
+}
+
+.difficulty-count {
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+.difficulty-bar {
+  width: 100%;
+  height: 12px;
+  background: var(--dark-surface-light);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.difficulty-progress {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 1s ease;
+}
+
+.profile-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.leetcode-link {
+  display: flex;
+  justify-content: center;
+}
+
+.leetcode-button {
+  background: linear-gradient(135deg, #FFA116 0%, #FF6B00 100%);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 161, 22, 0.4);
+}
+
+.leetcode-button:hover {
+  box-shadow: 0 6px 20px rgba(255, 161, 22, 0.6);
+  transform: translateY(-2px);
+}
+
+.codolio-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+}
+
+.codolio-button:hover {
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.6);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .leetcode-stats {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  .stat-card {
+    padding: 1.5rem;
+  }
+
+  .stat-icon {
+    font-size: 2.5rem;
+  }
+
+  .stat-value {
+    font-size: 2rem;
+  }
+}

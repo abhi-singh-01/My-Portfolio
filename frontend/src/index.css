@@ -1,0 +1,167 @@
+@import "tailwindcss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #6366f1;
+  --secondary-color: #8b5cf6;
+  --accent-color: #ec4899;
+  --dark-bg: #0f172a;
+  --dark-surface: #1e293b;
+  --dark-surface-light: #334155;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  /* Border and shadow colors */
+  --border-color: rgba(99, 102, 241, 0.2);
+  --shadow-color: rgba(99, 102, 241, 0.2);
+  --shadow-hover: rgba(99, 102, 241, 0.3);
+  --card-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
+}
+
+/* Light Theme Variables */
+[data-theme="light"] {
+  --dark-bg: #f8fafc;
+  --dark-surface: #ffffff;
+  --dark-surface-light: #e2e8f0;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  /* Light mode border and shadow colors */
+  --border-color: rgba(99, 102, 241, 0.3);
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --shadow-hover: rgba(99, 102, 241, 0.2);
+  --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--dark-bg);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  /* Optimize font rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  /* Smooth theme transition */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--dark-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-color);
+}
+
+/* Selection */
+::selection {
+  background: var(--primary-color);
+  color: white;
+}
+
+/* Utility Classes */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section {
+  min-height: 100vh;
+  padding: 100px 0;
+  /* Performance: Only render when visible */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 100vh;
+}
+
+/* First section should always render */
+.hero {
+  content-visibility: visible;
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+}
+
+/* Loading Spinner - GPU accelerated */
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--dark-surface-light);
+  border-top: 3px solid var(--primary-color);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  will-change: transform;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Performance hints for animated elements */
+.hero-image,
+.image-wrapper,
+.skill-card,
+.project-card,
+.stat-card {
+  will-change: transform;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .loading-spinner {
+    animation: none;
+    border-top-color: var(--primary-color);
+  }
+}
