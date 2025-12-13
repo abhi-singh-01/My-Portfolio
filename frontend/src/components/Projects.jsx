@@ -6,6 +6,11 @@ import axios from 'axios';
 import { endpoints } from '../config/api';
 import './Projects.css';
 
+// Import project images
+import ecomplaintImage from '../assets/ecomplaint_preview.png';
+import weatherImage from '../assets/weather_preview.png';
+import vaartaImage from '../assets/vaarta_preview.png';
+
 // Move static data outside component to prevent recreation
 const defaultProjects = [
   {
@@ -16,7 +21,7 @@ const defaultProjects = [
     githubUrl: 'https://github.com/abhi-singh-01/E-Complaint',
     liveUrl: 'https://ecomplain01.vercel.app/',
     featured: true,
-    image: '',
+    image: ecomplaintImage,
   },
   {
     _id: '1',
@@ -26,7 +31,7 @@ const defaultProjects = [
     githubUrl: 'https://github.com/abhi-singh-01/weather-app',
     liveUrl: 'https://weather-app-two-gamma-65.vercel.app/',
     featured: true,
-    image: '',
+    image: weatherImage,
   },
   {
     _id: '2',
@@ -36,7 +41,7 @@ const defaultProjects = [
     githubUrl: 'https://github.com/abhi-singh-01/Vaartaa',
     liveUrl: 'https://github.com/abhi-singh-01/Vaartaa',
     featured: true,
-    image: '',
+    image: vaartaImage,
   },
 ];
 
