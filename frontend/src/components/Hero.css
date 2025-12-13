@@ -141,6 +141,9 @@
   align-items: center;
   position: relative;
   z-index: 1;
+  margin-top: 30px;
+  padding-top: 25px;
+  overflow: hidden;
 }
 
 .image-wrapper {
