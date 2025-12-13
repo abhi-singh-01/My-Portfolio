@@ -143,22 +143,29 @@
   z-index: 1;
   margin-top: 30px;
   padding-top: 25px;
-  overflow: hidden;
+  overflow: visible;
+  width: 100%;
+  max-width: 450px;
 }
 
 .image-wrapper {
   position: relative;
-  width: 400px;
-  height: 400px;
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 1 / 1;
   z-index: 1;
+  margin: 0 auto;
 }
 
 .profile-image {
-  position: relative;
-  width: 300px;
-  height: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  max-width: 300px;
+  aspect-ratio: 1 / 1;
   border-radius: 50%;
-  margin: 50px auto;
   z-index: 2;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   display: flex;
@@ -168,8 +175,9 @@
 }
 
 .profile-placeholder {
-  width: 280px;
-  height: 280px;
+  width: 93%;
+  aspect-ratio: 1 / 1;
+  max-width: 280px;
   border-radius: 50%;
   background: var(--dark-surface);
   display: flex;
@@ -181,8 +189,9 @@
 
 /* Hero photo image styling */
 .hero-photo {
-  width: 280px;
-  height: 280px;
+  width: 93%;
+  aspect-ratio: 1 / 1;
+  max-width: 280px;
   border-radius: 50%;
   object-fit: cover;
   object-position: center top;
@@ -201,22 +210,25 @@
 }
 
 .orbit-1 {
-  width: 350px;
-  height: 350px;
+  width: 87.5%;
+  max-width: 350px;
+  aspect-ratio: 1 / 1;
   border-color: var(--primary-color);
   animation: rotate 20s linear infinite;
 }
 
 .orbit-2 {
-  width: 400px;
-  height: 400px;
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 1 / 1;
   border-color: var(--secondary-color);
   animation: rotate 15s linear infinite reverse;
 }
 
 .orbit-3 {
-  width: 450px;
-  height: 450px;
+  width: 112.5%;
+  max-width: 450px;
+  aspect-ratio: 1 / 1;
   border-color: var(--accent-color);
   animation: rotate 25s linear infinite;
 }
@@ -289,6 +301,8 @@
 
   .hero-image {
     order: -1;
+    max-width: 320px;
+    margin: 0 auto;
   }
 
   .hero-name {
@@ -308,36 +322,28 @@
   }
 
   .image-wrapper {
-    width: 280px;
-    height: 280px;
-    margin: 0 auto;
+    max-width: 280px;
   }
 
   .profile-image {
-    width: 220px;
-    height: 220px;
-    margin: 30px auto;
+    max-width: 220px;
   }
 
-  .profile-placeholder,
-  .hero-photo {
-    width: 200px;
-    height: 200px;
+  .hero-photo,
+  .profile-placeholder {
+    max-width: 200px;
   }
 
   .orbit-1 {
-    width: 260px;
-    height: 260px;
+    max-width: 260px;
   }
 
   .orbit-2 {
-    width: 290px;
-    height: 290px;
+    max-width: 290px;
   }
 
   .orbit-3 {
-    width: 320px;
-    height: 320px;
+    max-width: 320px;
   }
 
   .scroll-indicator {
@@ -373,36 +379,33 @@
     font-size: 0.85rem;
   }
 
+  .hero-image {
+    max-width: 260px;
+  }
+
   .image-wrapper {
-    width: 240px;
-    height: 240px;
+    max-width: 240px;
   }
 
   .profile-image {
-    width: 180px;
-    height: 180px;
-    margin: 30px auto;
+    max-width: 180px;
   }
 
-  .profile-placeholder,
-  .hero-photo {
-    width: 160px;
-    height: 160px;
+  .hero-photo,
+  .profile-placeholder {
+    max-width: 160px;
   }
 
   .orbit-1 {
-    width: 220px;
-    height: 220px;
+    max-width: 220px;
   }
 
   .orbit-2 {
-    width: 250px;
-    height: 250px;
+    max-width: 250px;
   }
 
   .orbit-3 {
-    width: 280px;
-    height: 280px;
+    max-width: 280px;
   }
 
   .hero-text {
