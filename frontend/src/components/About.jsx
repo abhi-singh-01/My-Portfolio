@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { FaCode, FaRocket, FaHeart } from 'react-icons/fa';
+import { FaCode, FaRocket, FaHeart, FaGraduationCap, FaMapMarkerAlt, FaServer, FaLaptopCode } from 'react-icons/fa';
 import './About.css';
 
 const About = () => {
@@ -33,19 +33,24 @@ const About = () => {
 
   const features = [
     {
+      icon: <FaServer />,
+      title: 'Backend Architecture',
+      description: 'Building high-performance, scalable backend systems using Java, Spring Boot, and microservices architecture.',
+    },
+    {
+      icon: <FaLaptopCode />,
+      title: 'Full-Stack Development',
+      description: 'Crafting modern, responsive web applications with the MERN stack—from APIs to intuitive user interfaces.',
+    },
+    {
       icon: <FaCode />,
-      title: 'Clean Code',
-      description: 'I write clean, maintainable, and scalable code following best practices and design patterns.',
+      title: 'Clean Architecture',
+      description: 'Obsessed with writing code that scales beyond prototypes—clean, maintainable, and production-ready.',
     },
     {
       icon: <FaRocket />,
-      title: 'Fast Development',
-      description: 'I deliver high-quality solutions quickly using modern frameworks and tools.',
-    },
-    {
-      icon: <FaHeart />,
-      title: 'Passionate',
-      description: 'I love what I do and constantly strive to learn new technologies and improve my skills.',
+      title: 'Continuous Learner',
+      description: 'Driven by curiosity and the desire to stay ahead with emerging technologies and best practices.',
     },
   ];
 
@@ -73,14 +78,54 @@ const About = () => {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              Full-Stack & Java Backend Developer
+              Hi, I'm <span className="highlight-name">Abhijeet Singh</span> 👋
             </motion.h3>
             <motion.p
+              className="tagline"
               initial={{ opacity: 0, x: -50 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              Building scalable systems with Java and modern web apps using the MERN stack. Passionate about clean code, performance, and continuous learning. Always open to building impactful products and collaborating on exciting ideas.
+              Full-Stack & Java Backend Developer crafting scalable, real-world applications.
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0, x: -50 }}
+              animate={inView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              I design and build <strong>high-performance backend systems</strong> using Java and develop modern,
+              responsive web applications with the <strong>MERN stack</strong>. I care deeply about clean architecture,
+              optimized performance, and writing code that scales beyond prototypes.
+            </motion.p>
+
+            <motion.div
+              className="about-details"
+              initial={{ opacity: 0, x: -50 }}
+              animate={inView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.5 }}
+            >
+              <div className="detail-item">
+                <FaGraduationCap className="detail-icon" />
+                <span><strong>MCA</strong> @ KIET Deemed to be University, Ghaziabad (Delhi-NCR)</span>
+              </div>
+              <div className="detail-item">
+                <FaGraduationCap className="detail-icon" />
+                <span><strong>BCA</strong> @ SMS, Varanasi — Strong foundation in DSA & Software Development</span>
+              </div>
+              <div className="detail-item">
+                <FaMapMarkerAlt className="detail-icon" />
+                <span>Originally from <strong>Varanasi, Uttar Pradesh</strong></span>
+              </div>
+            </motion.div>
+
+            <motion.p
+              className="cta-text"
+              initial={{ opacity: 0, x: -50 }}
+              animate={inView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.6 }}
+            >
+              🚀 I'm always open to collaborating on impactful projects, contributing to innovative ideas,
+              and growing as a developer in a challenging environment. <strong>Let's build something amazing together!</strong>
             </motion.p>
           </motion.div>
 
