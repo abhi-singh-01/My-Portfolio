@@ -270,9 +270,20 @@
 }
 
 @media (max-width: 968px) {
+  .hero {
+    min-height: auto;
+    padding-top: 100px;
+    padding-bottom: 60px;
+  }
+
   .hero-content {
     grid-template-columns: 1fr;
     text-align: center;
+    gap: 2rem;
+  }
+
+  .hero-image {
+    order: -1;
   }
 
   .hero-name {
@@ -292,41 +303,104 @@
   }
 
   .image-wrapper {
-    width: 300px;
-    height: 300px;
+    width: 280px;
+    height: 280px;
+    margin: 0 auto;
   }
 
   .profile-image {
-    width: 250px;
-    height: 250px;
+    width: 220px;
+    height: 220px;
+    margin: 30px auto;
   }
 
-  .profile-placeholder {
-    width: 230px;
-    height: 230px;
-  }
-
+  .profile-placeholder,
   .hero-photo {
-    width: 230px;
-    height: 230px;
+    width: 200px;
+    height: 200px;
+  }
+
+  .orbit-1 {
+    width: 260px;
+    height: 260px;
+  }
+
+  .orbit-2 {
+    width: 290px;
+    height: 290px;
+  }
+
+  .orbit-3 {
+    width: 320px;
+    height: 320px;
+  }
+
+  .scroll-indicator {
+    display: none;
   }
 }
 
 @media (max-width: 768px) {
+  .hero {
+    padding-top: 90px;
+    padding-bottom: 40px;
+  }
+
+  .hero-content {
+    gap: 1.5rem;
+  }
+
   .hero-name {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
 
   .hero-typed {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    min-height: 2rem;
   }
 
   .hero-description {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 
   .btn {
-    padding: 0.75rem 1.5rem;
-    font-size: 0.9rem;
+    padding: 0.7rem 1.25rem;
+    font-size: 0.85rem;
+  }
+
+  .image-wrapper {
+    width: 240px;
+    height: 240px;
+  }
+
+  .profile-image {
+    width: 180px;
+    height: 180px;
+    margin: 30px auto;
+  }
+
+  .profile-placeholder,
+  .hero-photo {
+    width: 160px;
+    height: 160px;
+  }
+
+  .orbit-1 {
+    width: 220px;
+    height: 220px;
+  }
+
+  .orbit-2 {
+    width: 250px;
+    height: 250px;
+  }
+
+  .orbit-3 {
+    width: 280px;
+    height: 280px;
+  }
+
+  .hero-text {
+    gap: 1rem;
   }
 }

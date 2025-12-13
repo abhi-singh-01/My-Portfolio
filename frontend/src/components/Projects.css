@@ -130,9 +130,39 @@
 @media (max-width: 768px) {
   .projects-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
   .project-image {
-    height: 200px;
+    height: 180px;
+  }
+
+  .project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .project-content {
+    padding: 1.25rem;
+  }
+
+  .project-content h3 {
+    font-size: 1.25rem;
+  }
+
+  .project-content p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .tech-tag {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
+  }
+
+  .project-placeholder {
+    font-size: 1.2rem;
   }
 }
