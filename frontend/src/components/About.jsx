@@ -73,34 +73,14 @@ const About = () => {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              Hello! I'm a passionate Full Stack & Java Backend Developer
+              Full-Stack & Java Backend Developer
             </motion.h3>
             <motion.p
               initial={{ opacity: 0, x: -50 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              I love to create robust backend systems using Java and build complete web applications
-              with the MERN stack. I specialize in building scalable and efficient applications,
-              with a strong foundation in both frontend and backend development. My journey in
-              software development has been fueled by a passion for creating solutions that make a difference.
-            </motion.p>
-            <motion.p
-              initial={{ opacity: 0, x: -50 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              When I'm not coding, you can find me solving algorithmic problems on LeetCode,
-              contributing to open-source projects, or exploring new technologies. I believe
-              in continuous learning and always stay updated with the latest industry trends.
-            </motion.p>
-            <motion.p
-              initial={{ opacity: 0, x: -50 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.5 }}
-            >
-              I'm always open to discussing new projects, creative ideas, or opportunities
-              to be part of your visions. Feel free to reach out if you'd like to collaborate!
+              Building scalable systems with Java and modern web apps using the MERN stack. Passionate about clean code, performance, and continuous learning. Always open to building impactful products and collaborating on exciting ideas.
             </motion.p>
           </motion.div>
 
