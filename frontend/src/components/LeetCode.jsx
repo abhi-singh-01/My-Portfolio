@@ -115,10 +115,10 @@ const LeetCode = memo(() => {
       color: '#f59e0b',
     },
     {
-      icon: <FaStar />,
-      label: 'Acceptance Rate',
-      value: `${leetcodeStats.acceptanceRate}%`,
-      color: '#ef4444',
+      icon: <FaChartLine />,
+      label: 'Problems Completed',
+      value: `${leetcodeStats.acceptanceRate || 0}%`,
+      color: '#10b981',
     },
   ], [leetcodeStats.totalSolved, leetcodeStats.ranking, leetcodeStats.acceptanceRate]);
 
