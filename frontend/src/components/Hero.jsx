@@ -97,8 +97,7 @@ const Hero = memo(() => {
               className="hero-description"
               variants={itemVariants}
             >
-              I'm a passionate developer who loves creating amazing web experiences
-              and solving complex problems with elegant solutions.
+              A developer focused on building modern, user-centric web applications with elegant, scalable solutions.
             </motion.p>
 
             <motion.div
