@@ -84,10 +84,9 @@ const Hero = memo(() => {
             >
               <ReactTyped
                 strings={[
-                  'Full Stack Developer',
                   'MERN Stack Developer',
+                  'Java Developer',
                   'Problem Solver',
-                  'UI/UX Enthusiast',
                 ]}
                 typeSpeed={50}
                 backSpeed={30}
