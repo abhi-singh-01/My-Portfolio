@@ -24,7 +24,7 @@ const defaultProjects = [
     description: 'A digital complaint management system for streamlined issue tracking and resolution.',
     technologies: ['React', 'Node.js', 'MongoDB', 'Express'],
     githubUrl: 'https://github.com/abhi-singh-01/E-Complaint',
-    liveUrl: 'https://github.com/abhi-singh-01/E-Complaint',
+    liveUrl: 'https://ecomplain01.vercel.app/',
     featured: true,
     image: '',
   },
