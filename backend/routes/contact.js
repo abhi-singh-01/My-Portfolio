@@ -1,8 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const Contact = require('../models/Contact');
+const { Resend } = require('resend');
 
-// Contact form submission - saves to database
+// Initialize Resend with API key
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+// Contact form submission - saves to database and sends email
 router.post('/', async (req, res) => {
   try {
     const { name, email, message } = req.body;
@@ -20,6 +24,28 @@ router.post('/', async (req, res) => {
     });
 
     await contact.save();
+
+    // Send email notification via Resend
+    try {
+      await resend.emails.send({
+        from: 'Portfolio Contact <onboarding@resend.dev>',
+        to: process.env.NOTIFY_EMAIL || 'mrabhirajput5@gmail.com',
+        subject: `New Portfolio Message from ${name}`,
+        html: `
+          <h2>New Contact Form Submission</h2>
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Message:</strong></p>
+          <p>${message}</p>
+          <hr>
+          <p><small>Sent from your Portfolio website</small></p>
+        `
+      });
+      console.log(`Email notification sent for message from ${name}`);
+    } catch (emailError) {
+      console.error('Email notification failed:', emailError);
+      // Don't fail the request if email fails - message is still saved
+    }
 
     console.log(`New message from ${name} (${email})`);
     res.json({ message: 'Message received successfully!' });
