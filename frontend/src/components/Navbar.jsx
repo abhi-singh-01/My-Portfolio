@@ -32,6 +32,8 @@ const Navbar = memo(() => {
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+      // Update URL hash without triggering scroll
+      window.history.pushState(null, '', href);
       setIsMobileMenuOpen(false);
     }
   }, []);
