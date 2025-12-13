@@ -9,7 +9,9 @@ const app = express();
 const allowedOrigins = [
   'http://localhost:5173',
   'http://localhost:3000',
-  process.env.FRONTEND_URL, // Vercel URL will be set here
+  'https://ajswork.space',
+  'https://www.ajswork.space',
+  process.env.FRONTEND_URL, // Additional frontend URL from env
 ].filter(Boolean);
 
 app.use(cors({
@@ -19,6 +21,10 @@ app.use(cors({
     if (allowedOrigins.indexOf(origin) === -1) {
       // Allow all Vercel preview URLs
       if (origin.endsWith('.vercel.app')) {
+        return callback(null, true);
+      }
+      // Allow ajswork.space and subdomains
+      if (origin.endsWith('ajswork.space')) {
         return callback(null, true);
       }
       return callback(new Error('Not allowed by CORS'), false);
