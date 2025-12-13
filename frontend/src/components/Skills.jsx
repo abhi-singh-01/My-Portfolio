@@ -88,8 +88,9 @@ const itemVariants = {
 
 const Skills = memo(() => {
   const [ref, inView] = useInView({
-    threshold: 0.2,
+    threshold: 0.05,
     triggerOnce: true,
+    rootMargin: '50px 0px',
   });
 
   // Memoize category skills filtering
@@ -107,7 +108,7 @@ const Skills = memo(() => {
         <motion.h2
           className="section-title"
           initial={{ opacity: 0, y: -50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
           Skills
@@ -138,7 +139,7 @@ const Skills = memo(() => {
                         className="skill-card"
                         whileHover={{ scale: 1.1, y: -5 }}
                         initial={{ opacity: 0, y: 20 }}
-                        animate={inView ? { opacity: 1, y: 0 } : {}}
+                        animate={inView ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
                       >
                         <div className="skill-icon" style={{ color: skill.color }}>

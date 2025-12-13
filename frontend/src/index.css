@@ -91,9 +91,6 @@ html {
 .section {
   min-height: 100vh;
   padding: 100px 0;
-  /* Performance: Only render when visible */
-  content-visibility: auto;
-  contain-intrinsic-size: auto 100vh;
 }
 
 /* First section should always render */
