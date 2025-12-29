@@ -15,8 +15,6 @@ import {
 import {
   SiMongodb as MongoIcon,
   SiExpress as ExpressIcon,
-  SiHtml5 as HtmlIcon,
-  SiCss3 as CssIcon,
   SiTailwindcss as TailwindIcon,
   SiRedux as ReduxIcon,
   SiFirebase as FirebaseIcon,
@@ -45,6 +43,9 @@ import {
   SiCloudinary as CloudinaryIcon,
   SiKubernetes as KubernetesIcon,
   SiRabbitmq as RabbitmqIcon,
+  SiFastapi as FastapiIcon,
+  SiDjango as DjangoIcon,
+  SiPrisma as PrismaIcon,
 } from 'react-icons/si';
 import './Skills.css';
 
@@ -58,8 +59,6 @@ const skills = [
   { name: 'MongoDB', icon: MongoIcon, proficiency: 80, color: '#47A248' },
   { name: 'MySQL', icon: MysqlIcon, proficiency: 80, color: '#4479A1' },
   { name: 'Express', icon: ExpressIcon, proficiency: 85, color: '#000000' },
-  { name: 'HTML5', icon: HtmlIcon, proficiency: 95, color: '#E34F26' },
-  { name: 'CSS3', icon: CssIcon, proficiency: 90, color: '#1572B6' },
   { name: 'Python', icon: FaPython, proficiency: 75, color: '#3776AB' },
   { name: 'Git', icon: FaGitAlt, proficiency: 85, color: '#F05032' },
   { name: 'Docker', icon: FaDocker, proficiency: 70, color: '#2496ED' },
@@ -91,14 +90,17 @@ const skills = [
   { name: 'Cloudinary', icon: CloudinaryIcon, proficiency: 75, color: '#3448C5' },
   { name: 'Kubernetes', icon: KubernetesIcon, proficiency: 65, color: '#326CE5' },
   { name: 'RabbitMQ', icon: RabbitmqIcon, proficiency: 70, color: '#FF6600' },
+  { name: 'FastAPI', icon: FastapiIcon, proficiency: 75, color: '#009688' },
+  { name: 'Django', icon: DjangoIcon, proficiency: 70, color: '#092E20' },
+  { name: 'Prisma', icon: PrismaIcon, proficiency: 75, color: '#2D3748' },
 ];
 
 const categories = {
   Languages: ['C', 'Java', 'JavaScript (ES6+)', 'Python', 'TypeScript'],
   'AI/ML': ['Hugging Face', 'LangChain', 'NumPy', 'OpenAI', 'OpenCV', 'Pandas', 'PyTorch', 'Scikit-learn'],
-  Frontend: ['React', 'Next.js', 'Framer Motion', 'HTML5', 'CSS3', 'Tailwind CSS', 'Material UI', 'Bootstrap', 'Redux'],
-  Backend: ['Node.js', 'Express', 'NestJS', 'Spring Boot', 'GraphQL', 'Kafka', 'RabbitMQ'],
-  Database: ['MongoDB', 'MySQL', 'PostgreSQL', 'Firebase', 'Redis'],
+  Frontend: ['React', 'Next.js', 'Framer Motion', 'Tailwind CSS', 'Material UI', 'Bootstrap', 'Redux'],
+  Backend: ['Node.js', 'Express', 'NestJS', 'Spring Boot', 'FastAPI', 'Django', 'GraphQL', 'Kafka', 'RabbitMQ'],
+  Database: ['MongoDB', 'MySQL', 'PostgreSQL', 'Firebase', 'Redis', 'Prisma'],
   Tools: ['Git', 'Docker', 'Kubernetes', 'AWS', 'GCP', 'Cloudinary', 'Linux'],
 };
 
