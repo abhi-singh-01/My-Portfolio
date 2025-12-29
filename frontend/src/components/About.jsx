@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { FaCode, FaRocket, FaHeart, FaGraduationCap, FaMapMarkerAlt, FaServer, FaLaptopCode } from 'react-icons/fa';
+import { FaCode, FaRocket, FaHeart, FaGraduationCap, FaMapMarkerAlt, FaServer, FaLaptopCode, FaBrain } from 'react-icons/fa';
 import './About.css';
 
 const About = () => {
@@ -33,24 +33,19 @@ const About = () => {
 
   const features = [
     {
-      icon: <FaServer />,
-      title: 'Backend Architecture',
-      description: 'Building high-performance, scalable backend systems using Java, Spring Boot, and microservices architecture.',
-    },
-    {
       icon: <FaLaptopCode />,
       title: 'Full-Stack Development',
-      description: 'Crafting modern, responsive web applications with the MERN stack—from APIs to intuitive user interfaces.',
+      description: 'Building modern, responsive web applications with the MERN stack and Java Spring Boot—from APIs to intuitive user interfaces.',
     },
     {
-      icon: <FaCode />,
-      title: 'Clean Architecture',
-      description: 'Obsessed with writing code that scales beyond prototypes—clean, maintainable, and production-ready.',
+      icon: <FaBrain />,
+      title: 'AI/ML',
+      description: 'Exploring machine learning and AI with PyTorch, LangChain, OpenAI, and Hugging Face to build intelligent applications.',
     },
     {
-      icon: <FaRocket />,
-      title: 'Continuous Learner',
-      description: 'Driven by curiosity and the desire to stay ahead with emerging technologies and best practices.',
+      icon: <FaServer />,
+      title: 'System Design',
+      description: 'Designing scalable, high-performance distributed systems with clean architecture and microservices patterns.',
     },
   ];
 
@@ -86,7 +81,7 @@ const About = () => {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              Full-Stack & Java Backend Developer crafting scalable, real-world applications.
+              Full-Stack Developer & AI/ML Enthusiast crafting scalable, intelligent applications.
             </motion.p>
             <motion.p
               initial={{ opacity: 0, x: -50 }}
@@ -94,7 +89,8 @@ const About = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               I design and build <strong>high-performance backend systems</strong> using Java and develop modern,
-              responsive web applications with the <strong>MERN stack</strong>. I care deeply about clean architecture,
+              responsive web applications with the <strong>MERN stack</strong>. Currently exploring <strong>AI/ML</strong> with
+              PyTorch, LangChain, and Hugging Face. I care deeply about clean architecture,
               optimized performance, and writing code that scales beyond prototypes.
             </motion.p>
 
@@ -124,8 +120,7 @@ const About = () => {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
-              🚀 I'm always open to collaborating on impactful projects, contributing to innovative ideas,
-              and growing as a developer in a challenging environment. <strong>Let's build something amazing together!</strong>
+              💼 <strong>Open to Opportunities:</strong> I'm actively seeking full-time roles and internships where I can contribute my skills in full-stack development and AI/ML. Let's connect and discuss how I can add value to your team!
             </motion.p>
           </motion.div>
 

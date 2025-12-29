@@ -95,39 +95,6 @@ const Hero = memo(() => {
               />
             </motion.div>
 
-            {/* Role Badges - New Feature */}
-            <motion.div
-              className="hero-roles"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-            >
-              <motion.span
-                className="role-badge"
-                whileHover={{ scale: 1.1, y: -3 }}
-              >
-                🧩 Problem Solver
-              </motion.span>
-              <motion.span
-                className="role-badge"
-                whileHover={{ scale: 1.1, y: -3 }}
-              >
-                ☕ Java Developer
-              </motion.span>
-              <motion.span
-                className="role-badge"
-                whileHover={{ scale: 1.1, y: -3 }}
-              >
-                🚀 MERN Stack Developer
-              </motion.span>
-              <motion.span
-                className="role-badge"
-                whileHover={{ scale: 1.1, y: -3 }}
-              >
-                🐍 Python Developer
-              </motion.span>
-            </motion.div>
-
             <motion.p
               className="hero-description"
               variants={itemVariants}
