@@ -38,6 +38,7 @@ import {
   SiScikitlearn as ScikitLearnIcon,
   SiOpencv as OpencvIcon,
   SiHuggingface as HuggingfaceIcon,
+  SiFramer as FramerMotionIcon,
 } from 'react-icons/si';
 import './Skills.css';
 
@@ -77,12 +78,13 @@ const skills = [
   { name: 'Scikit-learn', icon: ScikitLearnIcon, proficiency: 70, color: '#F7931E' },
   { name: 'OpenCV', icon: OpencvIcon, proficiency: 70, color: '#5C3EE8' },
   { name: 'Hugging Face', icon: HuggingfaceIcon, proficiency: 70, color: '#FFD21E' },
+  { name: 'Framer Motion', icon: FramerMotionIcon, proficiency: 80, color: '#0055FF' },
 ];
 
 const categories = {
   Languages: ['C', 'Java', 'JavaScript (ES6+)', 'Python', 'TypeScript'],
   'AI/ML': ['Hugging Face', 'LangChain', 'NumPy', 'OpenAI', 'OpenCV', 'Pandas', 'PyTorch', 'Scikit-learn'],
-  Frontend: ['React', 'HTML5', 'CSS3', 'Tailwind CSS', 'Material UI', 'Bootstrap', 'Redux'],
+  Frontend: ['React', 'Framer Motion', 'HTML5', 'CSS3', 'Tailwind CSS', 'Material UI', 'Bootstrap', 'Redux'],
   Database: ['MongoDB', 'MySQL', 'PostgreSQL', 'Firebase', 'Redis'],
   Tools: ['Git', 'Docker', 'AWS', 'Linux'],
 };
