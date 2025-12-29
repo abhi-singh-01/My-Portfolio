@@ -29,7 +29,7 @@ router.post('/', async (req, res) => {
     try {
       await resend.emails.send({
         from: 'Portfolio Contact <onboarding@resend.dev>',
-        to: process.env.NOTIFY_EMAIL || 'mrabhirajput5@gmail.com',
+        to: process.env.NOTIFY_EMAIL || 'abhijeetsingh03.dev@gmail.com',
         subject: `New Portfolio Message from ${name}`,
         html: `
           <h2>New Contact Form Submission</h2>

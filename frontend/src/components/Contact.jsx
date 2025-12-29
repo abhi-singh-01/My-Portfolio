@@ -53,8 +53,8 @@ const Contact = () => {
     {
       icon: <HiMail />,
       label: 'Email',
-      value: 'mrabhirajput5@gmail.com',
-      link: 'mailto:mrabhirajput5@gmail.com',
+      value: 'abhijeetsingh03.dev@gmail.com',
+      link: 'mailto:abhijeetsingh03.dev@gmail.com',
     },
     {
       icon: <HiPhone />,
