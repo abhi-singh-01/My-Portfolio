@@ -69,6 +69,36 @@
   color: var(--primary-color);
 }
 
+/* Role Badges - New Feature */
+.hero-roles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.role-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.role-badge:hover {
+  background: rgba(99, 102, 241, 0.2);
+  border-color: var(--primary-color);
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
 .hero-description {
   font-size: 1.1rem;
   color: var(--text-secondary);
@@ -321,6 +351,10 @@
     justify-content: center;
   }
 
+  .hero-roles {
+    justify-content: center;
+  }
+
   .image-wrapper {
     max-width: 280px;
   }
@@ -410,5 +444,14 @@
 
   .hero-text {
     gap: 1rem;
+  }
+
+  .hero-roles {
+    gap: 0.5rem;
+  }
+
+  .role-badge {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
   }
 }
