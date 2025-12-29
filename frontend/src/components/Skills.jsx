@@ -44,6 +44,7 @@ import {
   SiGooglecloud as GcpIcon,
   SiCloudinary as CloudinaryIcon,
   SiKubernetes as KubernetesIcon,
+  SiRabbitmq as RabbitmqIcon,
 } from 'react-icons/si';
 import './Skills.css';
 
@@ -89,13 +90,14 @@ const skills = [
   { name: 'GCP', icon: GcpIcon, proficiency: 65, color: '#4285F4' },
   { name: 'Cloudinary', icon: CloudinaryIcon, proficiency: 75, color: '#3448C5' },
   { name: 'Kubernetes', icon: KubernetesIcon, proficiency: 65, color: '#326CE5' },
+  { name: 'RabbitMQ', icon: RabbitmqIcon, proficiency: 70, color: '#FF6600' },
 ];
 
 const categories = {
   Languages: ['C', 'Java', 'JavaScript (ES6+)', 'Python', 'TypeScript'],
   'AI/ML': ['Hugging Face', 'LangChain', 'NumPy', 'OpenAI', 'OpenCV', 'Pandas', 'PyTorch', 'Scikit-learn'],
   Frontend: ['React', 'Next.js', 'Framer Motion', 'HTML5', 'CSS3', 'Tailwind CSS', 'Material UI', 'Bootstrap', 'Redux'],
-  Backend: ['Node.js', 'Express', 'NestJS', 'Spring Boot', 'GraphQL', 'Kafka'],
+  Backend: ['Node.js', 'Express', 'NestJS', 'Spring Boot', 'GraphQL', 'Kafka', 'RabbitMQ'],
   Database: ['MongoDB', 'MySQL', 'PostgreSQL', 'Firebase', 'Redis'],
   Tools: ['Git', 'Docker', 'Kubernetes', 'AWS', 'GCP', 'Cloudinary', 'Linux'],
 };
