@@ -159,6 +159,7 @@
   font-size: 1rem;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(255, 161, 22, 0.3);
+  margin-top: auto;
 }
 
 .leetcode-profile-btn:hover {

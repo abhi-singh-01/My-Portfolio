@@ -238,7 +238,6 @@ const LeetCode = memo(() => {
               <div className="codolio-features">
                 <span className="codolio-feature">📊 Multi-Platform Stats</span>
                 <span className="codolio-feature">🔥 Coding Streaks</span>
-                <span className="codolio-feature">📈 Progress Tracking</span>
               </div>
             </div>
 
