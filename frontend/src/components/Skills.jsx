@@ -27,6 +27,17 @@ import {
   SiBootstrap as BootstrapIcon,
   SiApachekafka as KafkaIcon,
   SiRedis as RedisIcon,
+  SiTypescript as TypescriptIcon,
+  SiC as CIcon,
+  SiPostgresql as PostgresqlIcon,
+  SiNumpy as NumpyIcon,
+  SiPandas as PandasIcon,
+  SiPytorch as PytorchIcon,
+  SiLangchain as LangchainIcon,
+  SiOpenai as OpenaiIcon,
+  SiScikitlearn as ScikitLearnIcon,
+  SiOpencv as OpencvIcon,
+  SiHuggingface as HuggingfaceIcon,
 } from 'react-icons/si';
 import './Skills.css';
 
@@ -34,7 +45,7 @@ import './Skills.css';
 const skills = [
   { name: 'React', icon: FaReact, proficiency: 90, color: '#61DAFB' },
   { name: 'Node.js', icon: FaNodeJs, proficiency: 85, color: '#339933' },
-  { name: 'JavaScript', icon: FaJs, proficiency: 90, color: '#F7DF1E' },
+  { name: 'JavaScript (ES6+)', icon: FaJs, proficiency: 90, color: '#F7DF1E' },
   { name: 'Java', icon: FaJava, proficiency: 85, color: '#007396' },
   { name: 'Spring Boot', icon: SpringBootIcon, proficiency: 80, color: '#6DB33F' },
   { name: 'MongoDB', icon: MongoIcon, proficiency: 80, color: '#47A248' },
@@ -55,12 +66,24 @@ const skills = [
   { name: 'Kafka', icon: KafkaIcon, proficiency: 70, color: '#231F20' },
   { name: 'Linux', icon: FaLinux, proficiency: 80, color: '#FCC624' },
   { name: 'Redis', icon: RedisIcon, proficiency: 75, color: '#DC382D' },
+  { name: 'TypeScript', icon: TypescriptIcon, proficiency: 80, color: '#3178C6' },
+  { name: 'C', icon: CIcon, proficiency: 75, color: '#A8B9CC' },
+  { name: 'PostgreSQL', icon: PostgresqlIcon, proficiency: 75, color: '#4169E1' },
+  { name: 'NumPy', icon: NumpyIcon, proficiency: 75, color: '#013243' },
+  { name: 'Pandas', icon: PandasIcon, proficiency: 75, color: '#150458' },
+  { name: 'PyTorch', icon: PytorchIcon, proficiency: 70, color: '#EE4C2C' },
+  { name: 'LangChain', icon: LangchainIcon, proficiency: 70, color: '#1C3C3C' },
+  { name: 'OpenAI', icon: OpenaiIcon, proficiency: 75, color: '#412991' },
+  { name: 'Scikit-learn', icon: ScikitLearnIcon, proficiency: 70, color: '#F7931E' },
+  { name: 'OpenCV', icon: OpencvIcon, proficiency: 70, color: '#5C3EE8' },
+  { name: 'Hugging Face', icon: HuggingfaceIcon, proficiency: 70, color: '#FFD21E' },
 ];
 
 const categories = {
+  Languages: ['C', 'Java', 'JavaScript (ES6+)', 'Python', 'TypeScript'],
+  'AI/ML': ['Hugging Face', 'LangChain', 'NumPy', 'OpenAI', 'OpenCV', 'Pandas', 'PyTorch', 'Scikit-learn'],
   Frontend: ['React', 'HTML5', 'CSS3', 'Tailwind CSS', 'Material UI', 'Bootstrap', 'Redux'],
-  Backend: ['Node.js', 'Express', 'Java', 'Spring Boot', 'Python', 'GraphQL', 'Kafka'],
-  Database: ['MongoDB', 'MySQL', 'Firebase', 'Redis'],
+  Database: ['MongoDB', 'MySQL', 'PostgreSQL', 'Firebase', 'Redis'],
   Tools: ['Git', 'Docker', 'AWS', 'Linux'],
 };
 
