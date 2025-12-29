@@ -39,6 +39,11 @@ import {
   SiOpencv as OpencvIcon,
   SiHuggingface as HuggingfaceIcon,
   SiFramer as FramerMotionIcon,
+  SiNestjs as NestjsIcon,
+  SiNextdotjs as NextjsIcon,
+  SiGooglecloud as GcpIcon,
+  SiCloudinary as CloudinaryIcon,
+  SiKubernetes as KubernetesIcon,
 } from 'react-icons/si';
 import './Skills.css';
 
@@ -79,14 +84,20 @@ const skills = [
   { name: 'OpenCV', icon: OpencvIcon, proficiency: 70, color: '#5C3EE8' },
   { name: 'Hugging Face', icon: HuggingfaceIcon, proficiency: 70, color: '#FFD21E' },
   { name: 'Framer Motion', icon: FramerMotionIcon, proficiency: 80, color: '#0055FF' },
+  { name: 'NestJS', icon: NestjsIcon, proficiency: 75, color: '#E0234E' },
+  { name: 'Next.js', icon: NextjsIcon, proficiency: 80, color: '#000000' },
+  { name: 'GCP', icon: GcpIcon, proficiency: 65, color: '#4285F4' },
+  { name: 'Cloudinary', icon: CloudinaryIcon, proficiency: 75, color: '#3448C5' },
+  { name: 'Kubernetes', icon: KubernetesIcon, proficiency: 65, color: '#326CE5' },
 ];
 
 const categories = {
   Languages: ['C', 'Java', 'JavaScript (ES6+)', 'Python', 'TypeScript'],
   'AI/ML': ['Hugging Face', 'LangChain', 'NumPy', 'OpenAI', 'OpenCV', 'Pandas', 'PyTorch', 'Scikit-learn'],
-  Frontend: ['React', 'Framer Motion', 'HTML5', 'CSS3', 'Tailwind CSS', 'Material UI', 'Bootstrap', 'Redux'],
+  Frontend: ['React', 'Next.js', 'Framer Motion', 'HTML5', 'CSS3', 'Tailwind CSS', 'Material UI', 'Bootstrap', 'Redux'],
+  Backend: ['Node.js', 'Express', 'NestJS', 'Spring Boot', 'GraphQL', 'Kafka'],
   Database: ['MongoDB', 'MySQL', 'PostgreSQL', 'Firebase', 'Redis'],
-  Tools: ['Git', 'Docker', 'AWS', 'Linux'],
+  Tools: ['Git', 'Docker', 'Kubernetes', 'AWS', 'GCP', 'Cloudinary', 'Linux'],
 };
 
 // Move animation variants outside component
