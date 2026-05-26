@@ -11,6 +11,7 @@ import {
   FaAws,
   FaJava,
   FaLinux,
+  FaBrain,
 } from 'react-icons/fa';
 import {
   SiMongodb as MongoIcon,
@@ -62,6 +63,7 @@ const skills = [
   { name: 'Python', icon: FaPython, proficiency: 75, color: '#3776AB' },
   { name: 'Git', icon: FaGitAlt, proficiency: 85, color: '#F05032' },
   { name: 'Docker', icon: FaDocker, proficiency: 70, color: '#2496ED' },
+  { name: 'AI / Gemini', icon: FaBrain, proficiency: 75, color: '#8B5CF6' },
   { name: 'AWS', icon: FaAws, proficiency: 65, color: '#FF9900' },
   { name: 'Redux', icon: ReduxIcon, proficiency: 80, color: '#764ABC' },
   { name: 'Tailwind CSS', icon: TailwindIcon, proficiency: 85, color: '#06B6D4' },
@@ -97,12 +99,14 @@ const skills = [
 
 const categories = {
   Languages: ['C', 'Java', 'JavaScript (ES6+)', 'Python', 'TypeScript'],
-  'AI/ML': ['Hugging Face', 'LangChain', 'NumPy', 'OpenAI', 'OpenCV', 'Pandas', 'PyTorch', 'Scikit-learn'],
+  'AI/ML': ['AI / Gemini', 'Hugging Face', 'LangChain', 'NumPy', 'OpenAI', 'OpenCV', 'Pandas', 'PyTorch', 'Scikit-learn'],
   Frontend: ['React', 'Next.js', 'Framer Motion', 'Tailwind CSS', 'Material UI', 'Bootstrap', 'Redux'],
   Backend: ['Node.js', 'Express', 'NestJS', 'Spring Boot', 'FastAPI', 'Django', 'GraphQL', 'Kafka', 'RabbitMQ'],
   Database: ['MongoDB', 'MySQL', 'PostgreSQL', 'Firebase', 'Redis', 'Prisma'],
   Tools: ['Git', 'Docker', 'Kubernetes', 'AWS', 'GCP', 'Cloudinary', 'Linux'],
 };
+
+const coreSkillNames = ['Java', 'Spring Boot', 'React', 'Node.js', 'MongoDB', 'MySQL', 'AI / Gemini', 'Docker'];
 
 // Move animation variants outside component
 const containerVariants = {
@@ -126,6 +130,19 @@ const itemVariants = {
   },
 };
 
+const coreSkillVariants = {
+  hidden: { opacity: 0, y: 28, rotateX: -15 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    rotateX: 0,
+    transition: {
+      duration: 0.55,
+      ease: 'easeOut',
+    },
+  },
+};
+
 const Skills = memo(() => {
   const [ref, inView] = useInView({
     threshold: 0.05,
@@ -133,11 +150,19 @@ const Skills = memo(() => {
     rootMargin: '50px 0px',
   });
 
+  const coreSkills = useMemo(() => (
+    coreSkillNames
+      .map((skillName) => skills.find((skill) => skill.name === skillName))
+      .filter(Boolean)
+  ), []);
+
   // Memoize category skills filtering
   const categorySkillsMap = useMemo(() => {
     const map = {};
     Object.entries(categories).forEach(([category, skillNames]) => {
-      map[category] = skills.filter(skill => skillNames.includes(skill.name));
+      map[category] = skills.filter(skill => (
+        skillNames.includes(skill.name) && !coreSkillNames.includes(skill.name)
+      ));
     });
     return map;
   }, []);
@@ -160,6 +185,30 @@ const Skills = memo(() => {
           initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
         >
+          <motion.div className="core-skills-panel" variants={itemVariants}>
+            <div className="core-skills-grid">
+              {coreSkills.map((skill, index) => {
+                const IconComponent = skill.icon;
+
+                return (
+                  <motion.div
+                    key={skill.name}
+                    className="core-skill-card"
+                    variants={coreSkillVariants}
+                    whileHover={{ y: -10, scale: 1.03 }}
+                    transition={{ delay: index * 0.06 }}
+                  >
+                    <div className="core-skill-glow" style={{ backgroundColor: skill.color }} />
+                    <div className="core-skill-icon" style={{ color: skill.color }}>
+                      <IconComponent />
+                    </div>
+                    <h3>{skill.name}</h3>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </motion.div>
+
           {Object.entries(categories).map(([category]) => {
             const categorySkills = categorySkillsMap[category];
 
@@ -186,16 +235,6 @@ const Skills = memo(() => {
                           <IconComponent />
                         </div>
                         <h4>{skill.name}</h4>
-                        <div className="skill-bar">
-                          <motion.div
-                            className="skill-progress"
-                            style={{ backgroundColor: skill.color }}
-                            initial={{ width: 0 }}
-                            animate={inView ? { width: `${skill.proficiency}%` } : { width: 0 }}
-                            transition={{ duration: 1, delay: 0.5 + index * 0.1 }}
-                          />
-                        </div>
-                        <span className="skill-percentage">{skill.proficiency}%</span>
                       </motion.div>
                     );
                   })}

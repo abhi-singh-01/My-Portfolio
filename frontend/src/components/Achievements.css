@@ -1,0 +1,144 @@
+.achievements {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.16), transparent 32%),
+    radial-gradient(circle at 82% 70%, rgba(236, 72, 153, 0.12), transparent 28%),
+    var(--dark-bg);
+  overflow: hidden;
+  position: relative;
+}
+
+.achievements-stage {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  perspective: 1200px;
+}
+
+.achievement-card {
+  position: relative;
+  min-height: 230px;
+  padding: 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  background: rgba(30, 41, 59, 0.72);
+  box-shadow: var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+[data-theme="light"] .achievement-card {
+  background: rgba(255, 255, 255, 0.82);
+}
+
+.achievement-card::before {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  border-radius: 23px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.14), transparent 46%);
+  z-index: -1;
+}
+
+.achievement-glow {
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  right: -46px;
+  top: -42px;
+  border-radius: 999px;
+  filter: blur(4px);
+  opacity: 0.38;
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+.achievement-icon {
+  width: 74px;
+  height: 74px;
+  border-radius: 22px;
+  color: white;
+  display: grid;
+  place-items: center;
+  font-size: 2.5rem;
+  box-shadow: 0 18px 35px rgba(15, 23, 42, 0.28);
+}
+
+.achievement-issuer {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.achievement-card h3 {
+  color: var(--text-primary);
+  font-size: 1.45rem;
+  line-height: 1.15;
+  margin-top: 0.35rem;
+}
+
+.achievement-orbit {
+  position: absolute;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 999px;
+  pointer-events: none;
+}
+
+.orbit-one {
+  width: 180px;
+  height: 180px;
+  left: -70px;
+  top: -72px;
+  animation: orbitFloat 12s linear infinite;
+}
+
+.orbit-two {
+  width: 230px;
+  height: 230px;
+  right: -96px;
+  bottom: -120px;
+  animation: orbitFloat 16s linear infinite reverse;
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    transform: scale(0.92);
+    opacity: 0.28;
+  }
+
+  50% {
+    transform: scale(1.08);
+    opacity: 0.48;
+  }
+}
+
+@keyframes orbitFloat {
+  from {
+    transform: rotate(0deg) translateY(8px);
+  }
+
+  to {
+    transform: rotate(360deg) translateY(8px);
+  }
+}
+
+@media (max-width: 968px) {
+  .achievements-stage {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .achievements-stage {
+    grid-template-columns: 1fr;
+  }
+
+  .achievement-card {
+    min-height: 190px;
+  }
+}

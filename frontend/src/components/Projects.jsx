@@ -6,11 +6,6 @@ import axios from 'axios';
 import { endpoints } from '../config/api';
 import './Projects.css';
 
-// Import project images
-import ecomplaintImage from '../assets/ecomplaint_preview.png';
-import weatherImage from '../assets/weather_preview.png';
-import vaartaImage from '../assets/vaarta_preview.png';
-
 const personalizedLearningProject = {
   _id: '3',
   title: 'Personalized Learning System',
@@ -32,7 +27,7 @@ const defaultProjects = [
     githubUrl: 'https://github.com/abhi-singh-01/E-Complaint',
     liveUrl: 'https://ecomplain01.vercel.app/',
     featured: true,
-    image: ecomplaintImage,
+    image: null,
   },
   {
     _id: '1',
@@ -42,7 +37,7 @@ const defaultProjects = [
     githubUrl: 'https://github.com/abhi-singh-01/weather-app',
     liveUrl: 'https://weather-app-two-gamma-65.vercel.app/',
     featured: true,
-    image: weatherImage,
+    image: null,
   },
   {
     _id: '2',
@@ -50,9 +45,9 @@ const defaultProjects = [
     description: 'A real-time chat application with modern features for seamless communication.',
     technologies: ['React', 'Node.js', 'Socket.io', 'MongoDB'],
     githubUrl: 'https://github.com/abhi-singh-01/Vaartaa',
-    liveUrl: 'https://github.com/abhi-singh-01/Vaartaa',
+    liveUrl: null,
     featured: true,
-    image: vaartaImage,
+    image: null,
   },
   personalizedLearningProject,
 ];

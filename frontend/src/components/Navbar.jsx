@@ -24,6 +24,7 @@ const Navbar = memo(() => {
     { name: 'Skills', href: '#skills' },
     { name: 'Projects', href: '#projects' },
     { name: 'LeetCode', href: '#leetcode' },
+    { name: 'Achievements', href: '#achievements' },
     { name: 'Contact', href: '#contact' },
   ], []);
 
