@@ -11,6 +11,17 @@ import ecomplaintImage from '../assets/ecomplaint_preview.png';
 import weatherImage from '../assets/weather_preview.png';
 import vaartaImage from '../assets/vaarta_preview.png';
 
+const personalizedLearningProject = {
+  _id: '3',
+  title: 'Personalized Learning System',
+  description: 'An AI-powered learning management system that creates personalized study plans, adaptive quizzes, course materials, live classes, and analytics for learners, educators, and admins.',
+  technologies: ['React', 'Node.js', 'MongoDB', 'Gemini AI', 'Tailwind CSS'],
+  githubUrl: 'https://github.com/abhi-singh-01/Personalized_Learning_Platform',
+  liveUrl: 'https://personalized-learning-platform-ochre.vercel.app',
+  featured: true,
+  image: 'https://personalized-learning-platform-ochre.vercel.app/educator-hero.png',
+};
+
 // Move static data outside component to prevent recreation
 const defaultProjects = [
   {
@@ -43,7 +54,20 @@ const defaultProjects = [
     featured: true,
     image: vaartaImage,
   },
+  personalizedLearningProject,
 ];
+
+const withPersonalizedLearningProject = (projectList) => {
+  const hasPersonalizedLearningProject = projectList.some((project) => (
+    project.githubUrl === personalizedLearningProject.githubUrl ||
+    project.liveUrl === personalizedLearningProject.liveUrl ||
+    project.title === personalizedLearningProject.title
+  ));
+
+  return hasPersonalizedLearningProject
+    ? projectList
+    : [...projectList, personalizedLearningProject];
+};
 
 // Move animation variants outside component
 const containerVariants = {
@@ -85,7 +109,7 @@ const Projects = memo(() => {
         });
         // Only use API data if it has projects, otherwise keep defaults
         if (response.data && response.data.length > 0) {
-          setProjects(response.data);
+          setProjects(withPersonalizedLearningProject(response.data));
         }
       } catch (error) {
         // Keep default projects on error

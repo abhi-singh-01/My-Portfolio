@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { HiDownload, HiMail } from 'react-icons/hi';
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import { ReactTyped } from 'react-typed';
-import heroImage from '../assets/heroImage.png';
+import heroImage from '../assets/heroImage.jpeg';
 import './Hero.css';
 
 // Move animation variants outside component to prevent recreation

@@ -52,7 +52,8 @@ const Navbar = memo(() => {
           whileTap={{ scale: 0.9 }}
         >
           <a href="#home" onClick={(e) => { e.preventDefault(); scrollToSection('#home'); }}>
-            Portfolio
+            <img src="/logo.svg" alt="Abhijeet Singh logo" className="logo-mark" />
+            <span className="logo-text">Abhijeet Singh</span>
           </a>
         </motion.div>
 
