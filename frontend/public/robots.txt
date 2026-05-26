@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ajswork.space/sitemap.xml
+Sitemap: https://www.ajswork.space/sitemap.xml

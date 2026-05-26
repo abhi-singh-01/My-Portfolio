@@ -2,18 +2,5 @@
     "buildCommand": "npm run build",
     "outputDirectory": "dist",
     "framework": "vite",
-    "installCommand": "npm install",
-    "redirects": [
-        {
-            "source": "/:path*",
-            "has": [
-                {
-                    "type": "host",
-                    "value": "www.ajswork.space"
-                }
-            ],
-            "destination": "https://ajswork.space/:path*",
-            "permanent": true
-        }
-    ]
+    "installCommand": "npm install"
 }
