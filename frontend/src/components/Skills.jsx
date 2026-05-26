@@ -40,14 +40,12 @@ import {
   SiOpencv as OpencvIcon,
   SiHuggingface as HuggingfaceIcon,
   SiFramer as FramerMotionIcon,
-  SiNestjs as NestjsIcon,
   SiNextdotjs as NextjsIcon,
   SiGooglecloud as GcpIcon,
   SiCloudinary as CloudinaryIcon,
   SiKubernetes as KubernetesIcon,
   SiRabbitmq as RabbitmqIcon,
   SiFastapi as FastapiIcon,
-  SiDjango as DjangoIcon,
   SiPrisma as PrismaIcon,
 } from 'react-icons/si';
 import './Skills.css';
@@ -88,14 +86,12 @@ const skills = [
   { name: 'OpenCV', icon: OpencvIcon, proficiency: 70, color: '#5C3EE8' },
   { name: 'Hugging Face', icon: HuggingfaceIcon, proficiency: 70, color: '#FFD21E' },
   { name: 'Framer Motion', icon: FramerMotionIcon, proficiency: 80, color: '#0055FF' },
-  { name: 'NestJS', icon: NestjsIcon, proficiency: 75, color: '#E0234E' },
   { name: 'Next.js', icon: NextjsIcon, proficiency: 80, color: '#000000' },
   { name: 'GCP', icon: GcpIcon, proficiency: 65, color: '#4285F4' },
   { name: 'Cloudinary', icon: CloudinaryIcon, proficiency: 75, color: '#3448C5' },
   { name: 'Kubernetes', icon: KubernetesIcon, proficiency: 65, color: '#326CE5' },
   { name: 'RabbitMQ', icon: RabbitmqIcon, proficiency: 70, color: '#FF6600' },
   { name: 'FastAPI', icon: FastapiIcon, proficiency: 75, color: '#009688' },
-  { name: 'Django', icon: DjangoIcon, proficiency: 70, color: '#092E20' },
   { name: 'Prisma', icon: PrismaIcon, proficiency: 75, color: '#2D3748' },
 ];
 
@@ -103,7 +99,7 @@ const categories = {
   Languages: ['C', 'Java', 'JavaScript (ES6+)', 'Python', 'TypeScript'],
   'AI/ML': ['Gemini AI', 'Hugging Face', 'LangChain', 'NumPy', 'OpenAI', 'OpenCV', 'Pandas', 'PyTorch', 'Scikit-learn'],
   Frontend: ['React', 'Next.js', 'Framer Motion', 'Tailwind CSS', 'Material UI', 'Bootstrap', 'Redux'],
-  Backend: ['Node.js', 'Express', 'NestJS', 'Spring Boot', 'FastAPI', 'Django', 'GraphQL', 'Kafka', 'RabbitMQ'],
+  Backend: ['Node.js', 'Express', 'Spring Boot', 'FastAPI', 'GraphQL', 'Kafka', 'RabbitMQ'],
   Database: ['MongoDB', 'MySQL', 'PostgreSQL', 'Firebase', 'Redis', 'Prisma'],
   Tools: ['Git', 'Docker', 'Kubernetes', 'AWS', 'GCP', 'Cloudinary', 'Linux'],
 };

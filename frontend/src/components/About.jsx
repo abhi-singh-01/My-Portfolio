@@ -8,17 +8,17 @@ const focusCards = [
   {
     icon: <FaLaptopCode />,
     title: 'Full Stack',
-    label: 'React + Node',
+    label: 'React + Node, React + Spring Boot',
   },
   {
     icon: <FaServer />,
     title: 'Backend',
-    label: 'Java + Spring',
+    label: 'Spring Boot, Node.js',
   },
   {
     icon: <FaBrain />,
     title: 'AI Builds',
-    label: 'Gemini + ML',
+    label: 'Gemini + Open AI',
   },
 ];
 
@@ -82,7 +82,7 @@ const About = () => {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              Abhijeet <span className="highlight-name">Singh</span>
+              Tech Stack Focus
             </motion.h3>
             <motion.p
               className="tagline"
@@ -96,6 +96,7 @@ const About = () => {
               <span>Java</span>
               <span>Spring Boot</span>
               <span>React</span>
+              <span>Node.js</span>
               <span>AI</span>
             </div>
           </motion.div>
