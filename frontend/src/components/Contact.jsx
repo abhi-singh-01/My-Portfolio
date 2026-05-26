@@ -156,8 +156,10 @@ const Contact = () => {
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
                   aria-label={social.label}
+                  title={social.label}
                 >
                   {social.icon}
+                  <span className="social-link-label">{social.label}</span>
                 </motion.a>
               ))}
             </div>

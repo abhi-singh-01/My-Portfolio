@@ -132,28 +132,37 @@ const Hero = memo(() => {
                 href="https://github.com/abhi-singh-01"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Open GitHub profile"
+                title="GitHub"
                 whileHover={{ scale: 1.2, y: -5 }}
                 whileTap={{ scale: 0.9 }}
               >
                 <FaGithub />
+                <span className="social-tooltip">GitHub</span>
               </motion.a>
               <motion.a
                 href="https://www.linkedin.com/in/abhijeetsingh16/"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Open LinkedIn profile"
+                title="LinkedIn"
                 whileHover={{ scale: 1.2, y: -5 }}
                 whileTap={{ scale: 0.9 }}
               >
                 <FaLinkedin />
+                <span className="social-tooltip">LinkedIn</span>
               </motion.a>
               <motion.a
                 href="https://x.com/MrabhiRajput1"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Open X profile"
+                title="X"
                 whileHover={{ scale: 1.2, y: -5 }}
                 whileTap={{ scale: 0.9 }}
               >
                 <FaTwitter />
+                <span className="social-tooltip">X</span>
               </motion.a>
             </motion.div>
           </motion.div>

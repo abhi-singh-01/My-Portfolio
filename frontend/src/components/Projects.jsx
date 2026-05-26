@@ -159,8 +159,11 @@ const Projects = memo(() => {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="project-link"
+                        aria-label={`View ${project.title} source code on GitHub`}
+                        title="View Code"
                       >
                         <FaGithub />
+                        <span>Code</span>
                       </a>
                     )}
                     {project.liveUrl && (
@@ -169,8 +172,11 @@ const Projects = memo(() => {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="project-link"
+                        aria-label={`Open ${project.title} live demo`}
+                        title="Live Demo"
                       >
                         <FaExternalLinkAlt />
+                        <span>Live</span>
                       </a>
                     )}
                   </div>

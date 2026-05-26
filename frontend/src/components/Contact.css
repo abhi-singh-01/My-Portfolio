@@ -77,17 +77,34 @@
 .social-links {
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .social-link {
-  color: var(--text-secondary);
-  font-size: 1.5rem;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-primary);
+  font-size: 1.15rem;
+  font-weight: 700;
+  padding: 0.7rem 0.9rem;
+  border-radius: 999px;
+  background: var(--dark-surface);
+  border: 1px solid var(--border-color);
   transition: all 0.3s ease;
   text-decoration: none;
 }
 
 .social-link:hover {
-  color: var(--primary-color);
+  color: white;
+  background: var(--gradient-1);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 12px 28px rgba(99, 102, 241, 0.28);
+}
+
+.social-link-label {
+  font-size: 0.85rem;
 }
 
 .contact-form {
@@ -277,7 +294,7 @@
   }
 
   .social-link {
-    font-size: 1.75rem;
+    font-size: 1rem;
   }
 
   .contact-form {

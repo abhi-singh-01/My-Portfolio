@@ -1,8 +1,33 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { FaCode, FaRocket, FaHeart, FaGraduationCap, FaMapMarkerAlt, FaServer, FaLaptopCode, FaBrain } from 'react-icons/fa';
+import { FaBrain, FaCode, FaGraduationCap, FaLaptopCode, FaMapMarkerAlt, FaRocket, FaServer } from 'react-icons/fa';
 import './About.css';
+
+const focusCards = [
+  {
+    icon: <FaLaptopCode />,
+    title: 'Full Stack',
+    label: 'React + Node',
+  },
+  {
+    icon: <FaServer />,
+    title: 'Backend',
+    label: 'Java + Spring',
+  },
+  {
+    icon: <FaBrain />,
+    title: 'AI Builds',
+    label: 'Gemini + ML',
+  },
+];
+
+const quickFacts = [
+  { icon: <FaGraduationCap />, value: 'MCA', label: 'KIET Ghaziabad' },
+  { icon: <FaCode />, value: 'BCA', label: 'SMS Varanasi' },
+  { icon: <FaMapMarkerAlt />, value: 'Varanasi', label: 'Uttar Pradesh' },
+  { icon: <FaRocket />, value: 'Open', label: 'Full-time / Internship' },
+];
 
 const About = () => {
   const [ref, inView] = useInView({
@@ -31,24 +56,6 @@ const About = () => {
     },
   };
 
-  const features = [
-    {
-      icon: <FaLaptopCode />,
-      title: 'Full-Stack Development',
-      description: 'Building modern, responsive web applications with the MERN stack and Java Spring Boot—from APIs to intuitive user interfaces.',
-    },
-    {
-      icon: <FaBrain />,
-      title: 'AI/ML',
-      description: 'Exploring machine learning and AI with PyTorch, LangChain, OpenAI, and Hugging Face to build intelligent applications.',
-    },
-    {
-      icon: <FaServer />,
-      title: 'System Design',
-      description: 'Designing scalable, high-performance distributed systems with clean architecture and microservices patterns.',
-    },
-  ];
-
   return (
     <section id="about" className="about section" ref={ref}>
       <div className="container">
@@ -67,13 +74,15 @@ const About = () => {
           initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
         >
-          <motion.div className="about-text" variants={itemVariants}>
+          <motion.div className="about-hero-card" variants={itemVariants}>
+            <div className="about-orbit orbit-a"></div>
+            <div className="about-orbit orbit-b"></div>
             <motion.h3
               initial={{ opacity: 0, x: -50 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              Hi, I'm <span className="highlight-name">Abhijeet Singh</span> 👋
+              Abhijeet <span className="highlight-name">Singh</span>
             </motion.h3>
             <motion.p
               className="tagline"
@@ -81,62 +90,46 @@ const About = () => {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              Full-Stack Developer & AI/ML Enthusiast crafting scalable, intelligent applications.
+              Full-Stack Developer building clean web apps, backend systems, and AI features.
             </motion.p>
-            <motion.p
-              initial={{ opacity: 0, x: -50 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              I design and build <strong>high-performance backend systems</strong> using Java and develop modern,
-              responsive web applications with the <strong>MERN stack</strong>. Currently exploring <strong>AI/ML</strong> with
-              PyTorch, LangChain, and Hugging Face. I care deeply about clean architecture,
-              optimized performance, and writing code that scales beyond prototypes.
-            </motion.p>
-
-            <motion.div
-              className="about-details"
-              initial={{ opacity: 0, x: -50 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.5 }}
-            >
-              <div className="detail-item">
-                <FaGraduationCap className="detail-icon" />
-                <span><strong>MCA</strong> @ KIET Deemed to be University, Ghaziabad (Delhi-NCR)</span>
-              </div>
-              <div className="detail-item">
-                <FaGraduationCap className="detail-icon" />
-                <span><strong>BCA</strong> @ SMS, Varanasi — Strong foundation in DSA & Software Development</span>
-              </div>
-              <div className="detail-item">
-                <FaMapMarkerAlt className="detail-icon" />
-                <span>Originally from <strong>Varanasi, Uttar Pradesh</strong></span>
-              </div>
-            </motion.div>
-
-            <motion.p
-              className="cta-text"
-              initial={{ opacity: 0, x: -50 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.6 }}
-            >
-              💼 <strong>Open to Opportunities:</strong> I'm actively seeking full-time roles and internships where I can contribute my skills in full-stack development and AI/ML. Let's connect and discuss how I can add value to your team!
-            </motion.p>
+            <div className="about-stack">
+              <span>Java</span>
+              <span>Spring Boot</span>
+              <span>React</span>
+              <span>AI</span>
+            </div>
           </motion.div>
 
           <motion.div className="about-features" variants={itemVariants}>
-            {features.map((feature, index) => (
+            {focusCards.map((feature, index) => (
               <motion.div
-                key={index}
+                key={feature.title}
                 className="feature-card"
-                whileHover={{ scale: 1.05, y: -10 }}
+                whileHover={{ scale: 1.05, y: -10, rotate: index % 2 === 0 ? 1 : -1 }}
                 initial={{ opacity: 0, y: 50 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
               >
                 <div className="feature-icon">{feature.icon}</div>
                 <h4>{feature.title}</h4>
-                <p>{feature.description}</p>
+                <p>{feature.label}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          <motion.div className="about-facts" variants={itemVariants}>
+            {quickFacts.map((fact, index) => (
+              <motion.div
+                key={`${fact.value}-${fact.label}`}
+                className="fact-card"
+                initial={{ opacity: 0, scale: 0.85 }}
+                animate={inView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.45, delay: 0.5 + index * 0.08 }}
+                whileHover={{ y: -6 }}
+              >
+                <div className="fact-icon">{fact.icon}</div>
+                <strong>{fact.value}</strong>
+                <span>{fact.label}</span>
               </motion.div>
             ))}
           </motion.div>

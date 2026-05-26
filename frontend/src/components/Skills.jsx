@@ -8,10 +8,12 @@ import {
   FaPython,
   FaGitAlt,
   FaDocker,
+  FaCode,
   FaAws,
   FaJava,
   FaLinux,
   FaBrain,
+  FaServer,
 } from 'react-icons/fa';
 import {
   SiMongodb as MongoIcon,
@@ -63,8 +65,8 @@ const skills = [
   { name: 'Python', icon: FaPython, proficiency: 75, color: '#3776AB' },
   { name: 'Git', icon: FaGitAlt, proficiency: 85, color: '#F05032' },
   { name: 'Docker', icon: FaDocker, proficiency: 70, color: '#2496ED' },
-  { name: 'AI / Gemini', icon: FaBrain, proficiency: 75, color: '#8B5CF6' },
   { name: 'AWS', icon: FaAws, proficiency: 65, color: '#FF9900' },
+  { name: 'Gemini AI', icon: FaBrain, proficiency: 75, color: '#8B5CF6' },
   { name: 'Redux', icon: ReduxIcon, proficiency: 80, color: '#764ABC' },
   { name: 'Tailwind CSS', icon: TailwindIcon, proficiency: 85, color: '#06B6D4' },
   { name: 'Material UI', icon: MaterialUIIcon, proficiency: 80, color: '#007FFF' },
@@ -99,14 +101,21 @@ const skills = [
 
 const categories = {
   Languages: ['C', 'Java', 'JavaScript (ES6+)', 'Python', 'TypeScript'],
-  'AI/ML': ['AI / Gemini', 'Hugging Face', 'LangChain', 'NumPy', 'OpenAI', 'OpenCV', 'Pandas', 'PyTorch', 'Scikit-learn'],
+  'AI/ML': ['Gemini AI', 'Hugging Face', 'LangChain', 'NumPy', 'OpenAI', 'OpenCV', 'Pandas', 'PyTorch', 'Scikit-learn'],
   Frontend: ['React', 'Next.js', 'Framer Motion', 'Tailwind CSS', 'Material UI', 'Bootstrap', 'Redux'],
   Backend: ['Node.js', 'Express', 'NestJS', 'Spring Boot', 'FastAPI', 'Django', 'GraphQL', 'Kafka', 'RabbitMQ'],
   Database: ['MongoDB', 'MySQL', 'PostgreSQL', 'Firebase', 'Redis', 'Prisma'],
   Tools: ['Git', 'Docker', 'Kubernetes', 'AWS', 'GCP', 'Cloudinary', 'Linux'],
 };
 
-const coreSkillNames = ['Java', 'Spring Boot', 'React', 'Node.js', 'MongoDB', 'MySQL', 'AI / Gemini', 'Docker'];
+const categoryMeta = {
+  Languages: { icon: FaCode, accent: '#F7DF1E' },
+  'AI/ML': { icon: FaBrain, accent: '#8B5CF6' },
+  Frontend: { icon: FaReact, accent: '#61DAFB' },
+  Backend: { icon: FaServer, accent: '#6DB33F' },
+  Database: { icon: MongoIcon, accent: '#47A248' },
+  Tools: { icon: FaDocker, accent: '#2496ED' },
+};
 
 // Move animation variants outside component
 const containerVariants = {
@@ -130,19 +139,6 @@ const itemVariants = {
   },
 };
 
-const coreSkillVariants = {
-  hidden: { opacity: 0, y: 28, rotateX: -15 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    rotateX: 0,
-    transition: {
-      duration: 0.55,
-      ease: 'easeOut',
-    },
-  },
-};
-
 const Skills = memo(() => {
   const [ref, inView] = useInView({
     threshold: 0.05,
@@ -150,19 +146,11 @@ const Skills = memo(() => {
     rootMargin: '50px 0px',
   });
 
-  const coreSkills = useMemo(() => (
-    coreSkillNames
-      .map((skillName) => skills.find((skill) => skill.name === skillName))
-      .filter(Boolean)
-  ), []);
-
   // Memoize category skills filtering
   const categorySkillsMap = useMemo(() => {
     const map = {};
     Object.entries(categories).forEach(([category, skillNames]) => {
-      map[category] = skills.filter(skill => (
-        skillNames.includes(skill.name) && !coreSkillNames.includes(skill.name)
-      ));
+      map[category] = skills.filter(skill => skillNames.includes(skill.name));
     });
     return map;
   }, []);
@@ -185,40 +173,27 @@ const Skills = memo(() => {
           initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
         >
-          <motion.div className="core-skills-panel" variants={itemVariants}>
-            <div className="core-skills-grid">
-              {coreSkills.map((skill, index) => {
-                const IconComponent = skill.icon;
-
-                return (
-                  <motion.div
-                    key={skill.name}
-                    className="core-skill-card"
-                    variants={coreSkillVariants}
-                    whileHover={{ y: -10, scale: 1.03 }}
-                    transition={{ delay: index * 0.06 }}
-                  >
-                    <div className="core-skill-glow" style={{ backgroundColor: skill.color }} />
-                    <div className="core-skill-icon" style={{ color: skill.color }}>
-                      <IconComponent />
-                    </div>
-                    <h3>{skill.name}</h3>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </motion.div>
-
           {Object.entries(categories).map(([category]) => {
             const categorySkills = categorySkillsMap[category];
+            const CategoryIcon = categoryMeta[category].icon;
 
             return (
               <motion.div
                 key={category}
                 className="skill-category"
                 variants={itemVariants}
+                style={{ '--category-accent': categoryMeta[category].accent }}
+                whileHover={{ y: -8 }}
               >
-                <h3 className="category-title">{category}</h3>
+                <div className="category-header">
+                  <div className="category-icon">
+                    <CategoryIcon />
+                  </div>
+                  <div>
+                    <h3 className="category-title">{category}</h3>
+                    <span className="category-count">{categorySkills.length} skills</span>
+                  </div>
+                </div>
                 <div className="skills-grid">
                   {categorySkills.map((skill, index) => {
                     const IconComponent = skill.icon;
@@ -230,6 +205,7 @@ const Skills = memo(() => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={inView ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
+                        style={{ '--skill-color': skill.color }}
                       >
                         <div className="skill-icon" style={{ color: skill.color }}>
                           <IconComponent />
