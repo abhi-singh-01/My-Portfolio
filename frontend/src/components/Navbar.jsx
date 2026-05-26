@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback, useMemo, memo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiMenu, HiX, HiSun, HiMoon } from 'react-icons/hi';
 import { useTheme } from '../context/ThemeContext';
+import symbolLogo from '../assets/sybmol.png';
 import './Navbar.css';
 
 const Navbar = memo(() => {
@@ -53,7 +54,7 @@ const Navbar = memo(() => {
           whileTap={{ scale: 0.9 }}
         >
           <a href="#home" onClick={(e) => { e.preventDefault(); scrollToSection('#home'); }}>
-            <img src="/logo.svg" alt="Abhijeet Singh logo" className="logo-mark" />
+            <img src={symbolLogo} alt="Abhijeet Singh logo" className="logo-mark" />
             <span className="logo-text">Abhijeet Singh</span>
           </a>
         </motion.div>

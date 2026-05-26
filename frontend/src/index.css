@@ -89,8 +89,9 @@ html {
 }
 
 .section {
-  min-height: 100vh;
-  padding: 100px 0;
+  min-height: auto;
+  padding: clamp(32px, 4vw, 44px) 0;
+  scroll-margin-top: 78px;
 }
 
 /* First section should always render */
@@ -102,7 +103,7 @@ html {
   font-size: 3rem;
   font-weight: 700;
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: clamp(0.95rem, 1.6vw, 1.25rem);
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -110,8 +111,14 @@ html {
 }
 
 @media (max-width: 768px) {
+  .section {
+    padding: 28px 0;
+    scroll-margin-top: 74px;
+  }
+
   .section-title {
     font-size: 2rem;
+    margin-bottom: 0.95rem;
   }
 }
 

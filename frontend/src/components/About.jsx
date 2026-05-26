@@ -61,7 +61,7 @@ const About = () => {
       <div className="container">
         <motion.h2
           className="section-title"
-          initial={{ opacity: 0, y: -50 }}
+          initial={{ opacity: 0, y: -16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
@@ -77,12 +77,13 @@ const About = () => {
           <motion.div className="about-hero-card" variants={itemVariants}>
             <div className="about-orbit orbit-a"></div>
             <div className="about-orbit orbit-b"></div>
+            <span className="about-kicker">Build Snapshot</span>
             <motion.h3
               initial={{ opacity: 0, x: -50 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              Tech Stack Focus
+              Full-stack AI Builder
             </motion.h3>
             <motion.p
               className="tagline"
@@ -90,14 +91,22 @@ const About = () => {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              Full-Stack Developer building clean web apps, backend systems, and AI features.
+              I build clean React interfaces, reliable Spring/Node APIs, and useful AI features for real products.
             </motion.p>
-            <div className="about-stack">
-              <span>Java</span>
-              <span>Spring Boot</span>
-              <span>React</span>
-              <span>Node.js</span>
-              <span>AI</span>
+            <div className="about-stack-panel">
+              <span className="stack-label">Core Stack</span>
+              <div className="about-stack">
+                <span>Java</span>
+                <span>Spring Boot</span>
+                <span>React</span>
+                <span>Node.js</span>
+                <span>AI</span>
+              </div>
+            </div>
+            <div className="about-build-list">
+              <span><strong>Frontend</strong> React UI</span>
+              <span><strong>Backend</strong> APIs + DB</span>
+              <span><strong>AI</strong> Gemini + OpenAI</span>
             </div>
           </motion.div>
 

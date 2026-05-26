@@ -1,0 +1,24 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="128" height="128" rx="34" fill="url(#outerGradient)"/>
+  <rect x="8" y="8" width="112" height="112" rx="29" fill="url(#cardGradient)"/>
+  <path d="M23 91L51.5 35H64.7L93 91H78.8L73.8 80.4H42.2L37.2 91H23ZM47.7 68.6H68.3L58 46.7L47.7 68.6Z" fill="#FFFFFF"/>
+  <path d="M82 91L91.5 74.4L82.7 60.3H96L99 65.9L102.1 60.3H115.1L106.2 74.1L116 91H102.7L98.7 83.8L94.6 91H82Z" fill="#E0F2FE"/>
+  <path d="M71.7 94.2C67.4 94.2 63.8 93.4 60.8 91.8C57.8 90.2 55.5 87.8 53.9 84.7L63.5 78.6C64.4 80.3 65.4 81.6 66.7 82.5C68 83.4 69.5 83.9 71.3 83.9C73.2 83.9 74.7 83.3 75.8 82.2C76.9 81.1 77.4 79.4 77.4 77.1V51.2H89.8V77.5C89.8 82.8 88.2 87 85.1 90C82 92.8 77.5 94.2 71.7 94.2Z" fill="#FCE7F3"/>
+  <path d="M21 30.5C35.8 18.7 53.8 14.4 72.4 18.3" stroke="#FFFFFF" stroke-opacity="0.45" stroke-width="4" stroke-linecap="round"/>
+  <path d="M30 104C47.8 113.3 77.5 113.1 99.2 98.8" stroke="#BFDBFE" stroke-opacity="0.6" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="29" cy="29" r="6" fill="#BAE6FD"/>
+  <circle cx="105" cy="35" r="4" fill="#FBCFE8"/>
+  <circle cx="103" cy="103" r="5" fill="#DDD6FE"/>
+  <defs>
+    <linearGradient id="outerGradient" x1="14" y1="8" x2="116" y2="122" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7DD3FC"/>
+      <stop offset="0.45" stop-color="#818CF8"/>
+      <stop offset="1" stop-color="#F472B6"/>
+    </linearGradient>
+    <linearGradient id="cardGradient" x1="13" y1="16" x2="116" y2="111" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0EA5E9"/>
+      <stop offset="0.48" stop-color="#6366F1"/>
+      <stop offset="1" stop-color="#D946EF"/>
+    </linearGradient>
+  </defs>
+</svg>

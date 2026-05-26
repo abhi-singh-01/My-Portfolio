@@ -17,13 +17,24 @@ const personalizedLearningProject = {
   image: 'https://personalized-learning-platform-ochre.vercel.app/educator-hero.png',
 };
 
+const pastebinProject = {
+  _id: '4',
+  title: 'Pastebin Lite',
+  description: 'A short URL creator web application for quickly creating and sharing compact links with a clean, lightweight interface.',
+  technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'Vercel'],
+  githubUrl: null,
+  liveUrl: 'https://pastebin-weld.vercel.app/',
+  featured: true,
+  image: null,
+};
+
 // Move static data outside component to prevent recreation
 const defaultProjects = [
   {
     _id: '0',
     title: 'E-Complaint',
     description: 'A digital complaint management system for streamlined issue tracking and resolution.',
-    technologies: ['React', 'Node.js', 'MongoDB', 'Express'],
+    technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'Redis'],
     githubUrl: 'https://github.com/abhi-singh-01/E-Complaint',
     liveUrl: 'https://ecomplain01.vercel.app/',
     featured: true,
@@ -50,18 +61,37 @@ const defaultProjects = [
     image: null,
   },
   personalizedLearningProject,
+  pastebinProject,
 ];
 
-const withPersonalizedLearningProject = (projectList) => {
-  const hasPersonalizedLearningProject = projectList.some((project) => (
-    project.githubUrl === personalizedLearningProject.githubUrl ||
-    project.liveUrl === personalizedLearningProject.liveUrl ||
-    project.title === personalizedLearningProject.title
-  ));
+const withPortfolioProjectUpdates = (projectList) => {
+  const projectsWithRedis = projectList.map((project) => {
+    const isEComplaint = (
+      project.title === 'E-Complaint' ||
+      project.githubUrl === 'https://github.com/abhi-singh-01/E-Complaint'
+    );
 
-  return hasPersonalizedLearningProject
-    ? projectList
-    : [...projectList, personalizedLearningProject];
+    if (!isEComplaint) return project;
+
+    const technologies = project.technologies || [];
+    const hasRedis = technologies.some((tech) => tech.toLowerCase() === 'redis');
+
+    return hasRedis
+      ? project
+      : { ...project, technologies: [...technologies, 'Redis'] };
+  });
+
+  return [personalizedLearningProject, pastebinProject].reduce((updatedProjects, staticProject) => {
+    const hasStaticProject = updatedProjects.some((project) => (
+      (staticProject.githubUrl && project.githubUrl === staticProject.githubUrl) ||
+      (staticProject.liveUrl && project.liveUrl === staticProject.liveUrl) ||
+      project.title === staticProject.title
+    ));
+
+    return hasStaticProject
+      ? updatedProjects
+      : [...updatedProjects, staticProject];
+  }, projectsWithRedis);
 };
 
 // Move animation variants outside component
@@ -104,7 +134,7 @@ const Projects = memo(() => {
         });
         // Only use API data if it has projects, otherwise keep defaults
         if (response.data && response.data.length > 0) {
-          setProjects(withPersonalizedLearningProject(response.data));
+          setProjects(withPortfolioProjectUpdates(response.data));
         }
       } catch (error) {
         // Keep default projects on error
@@ -123,7 +153,7 @@ const Projects = memo(() => {
       <div className="container">
         <motion.h2
           className="section-title"
-          initial={{ opacity: 0, y: -50 }}
+          initial={{ opacity: 0, y: -16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >

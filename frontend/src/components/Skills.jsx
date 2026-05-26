@@ -156,7 +156,7 @@ const Skills = memo(() => {
       <div className="container">
         <motion.h2
           className="section-title"
-          initial={{ opacity: 0, y: -50 }}
+          initial={{ opacity: 0, y: -16 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
