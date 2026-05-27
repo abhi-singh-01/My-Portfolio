@@ -4,7 +4,23 @@ import { useInView } from 'react-intersection-observer';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import axios from 'axios';
 import { endpoints } from '../config/api';
+import ecomplaintImage from '../assets/ecomplaint.png';
+import weatherImage from '../assets/weather.png';
+import vaartaImage from '../assets/vaarta.png';
+import pastebinImage from '../assets/pastebin.webp';
 import './Projects.css';
+
+const projectImagesByTitle = {
+  'E-Complaint': ecomplaintImage,
+  'Weather Forecast': weatherImage,
+  Vaarta: vaartaImage,
+  'Pastebin Lite': pastebinImage,
+};
+
+const resolveProjectImage = (project) => {
+  if (project.image) return project.image;
+  return projectImagesByTitle[project.title] || null;
+};
 
 const personalizedLearningProject = {
   _id: '3',
@@ -25,7 +41,7 @@ const pastebinProject = {
   githubUrl: null,
   liveUrl: 'https://pastebin-weld.vercel.app/',
   featured: true,
-  image: null,
+  image: pastebinImage,
 };
 
 // Move static data outside component to prevent recreation
@@ -38,7 +54,7 @@ const defaultProjects = [
     githubUrl: 'https://github.com/abhi-singh-01/E-Complaint',
     liveUrl: 'https://ecomplain01.vercel.app/',
     featured: true,
-    image: null,
+    image: ecomplaintImage,
   },
   {
     _id: '1',
@@ -48,7 +64,7 @@ const defaultProjects = [
     githubUrl: 'https://github.com/abhi-singh-01/weather-app',
     liveUrl: 'https://weather-app-two-gamma-65.vercel.app/',
     featured: true,
-    image: null,
+    image: weatherImage,
   },
   {
     _id: '2',
@@ -58,27 +74,29 @@ const defaultProjects = [
     githubUrl: 'https://github.com/abhi-singh-01/Vaartaa',
     liveUrl: null,
     featured: true,
-    image: null,
+    image: vaartaImage,
   },
   personalizedLearningProject,
   pastebinProject,
 ];
 
 const withPortfolioProjectUpdates = (projectList) => {
-  const projectsWithRedis = projectList.map((project) => {
+  const projectsWithUpdates = projectList.map((project) => {
     const isEComplaint = (
       project.title === 'E-Complaint' ||
       project.githubUrl === 'https://github.com/abhi-singh-01/E-Complaint'
     );
 
-    if (!isEComplaint) return project;
-
     const technologies = project.technologies || [];
     const hasRedis = technologies.some((tech) => tech.toLowerCase() === 'redis');
+    const withRedis = isEComplaint && !hasRedis
+      ? { ...project, technologies: [...technologies, 'Redis'] }
+      : project;
 
-    return hasRedis
-      ? project
-      : { ...project, technologies: [...technologies, 'Redis'] };
+    return {
+      ...withRedis,
+      image: resolveProjectImage(withRedis),
+    };
   });
 
   return [personalizedLearningProject, pastebinProject].reduce((updatedProjects, staticProject) => {
@@ -91,7 +109,7 @@ const withPortfolioProjectUpdates = (projectList) => {
     return hasStaticProject
       ? updatedProjects
       : [...updatedProjects, staticProject];
-  }, projectsWithRedis);
+  }, projectsWithUpdates);
 };
 
 // Move animation variants outside component
