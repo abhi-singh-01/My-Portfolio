@@ -4,22 +4,60 @@ import { useInView } from 'react-intersection-observer';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import axios from 'axios';
 import { endpoints } from '../config/api';
-import ecomplaintImage from '../assets/ecomplaint.png';
-import weatherImage from '../assets/weather.png';
-import vaartaImage from '../assets/vaarta.png';
+import ecomplaintImage from '../assets/ecomplaint.webp';
+import ecomplaintImage640 from '../assets/ecomplaint-640.webp';
+import weatherImage from '../assets/weather.webp';
+import weatherImage640 from '../assets/weather-640.webp';
+import vaartaImage from '../assets/vaarta.webp';
 import pastebinImage from '../assets/pastebin.webp';
 import './Projects.css';
 
+const CARD_IMAGE_SIZES = '(max-width: 768px) 100vw, 50vw';
+
+const createResponsiveImage = (full, compact) => ({
+  src: full,
+  srcSet: `${compact} 640w, ${full} 1200w`,
+  sizes: CARD_IMAGE_SIZES,
+});
+
 const projectImagesByTitle = {
-  'E-Complaint': ecomplaintImage,
-  'Weather Forecast': weatherImage,
-  Vaarta: vaartaImage,
-  'Pastebin Lite': pastebinImage,
+  'E-Complaint': createResponsiveImage(ecomplaintImage, ecomplaintImage640),
+  'Weather Forecast': createResponsiveImage(weatherImage, weatherImage640),
+  Vaarta: { src: vaartaImage },
+  'Pastebin Lite': { src: pastebinImage },
 };
 
 const resolveProjectImage = (project) => {
-  if (project.image) return project.image;
+  if (project.image) {
+    return typeof project.image === 'string'
+      ? { src: project.image }
+      : project.image;
+  }
+
   return projectImagesByTitle[project.title] || null;
+};
+
+const ProjectPreviewImage = ({ image, title }) => {
+  if (!image) {
+    return (
+      <div className="project-placeholder">
+        <span>{title}</span>
+      </div>
+    );
+  }
+
+  const imageProps = typeof image === 'string' ? { src: image } : image;
+
+  return (
+    <img
+      src={imageProps.src}
+      srcSet={imageProps.srcSet}
+      sizes={imageProps.sizes}
+      alt={title}
+      loading="lazy"
+      decoding="async"
+    />
+  );
 };
 
 const personalizedLearningProject = {
@@ -41,7 +79,7 @@ const pastebinProject = {
   githubUrl: null,
   liveUrl: 'https://pastebin-weld.vercel.app/',
   featured: true,
-  image: pastebinImage,
+  image: projectImagesByTitle['Pastebin Lite'],
 };
 
 // Move static data outside component to prevent recreation
@@ -54,7 +92,7 @@ const defaultProjects = [
     githubUrl: 'https://github.com/abhi-singh-01/E-Complaint',
     liveUrl: 'https://ecomplain01.vercel.app/',
     featured: true,
-    image: ecomplaintImage,
+    image: projectImagesByTitle['E-Complaint'],
   },
   {
     _id: '1',
@@ -64,7 +102,7 @@ const defaultProjects = [
     githubUrl: 'https://github.com/abhi-singh-01/weather-app',
     liveUrl: 'https://weather-app-two-gamma-65.vercel.app/',
     featured: true,
-    image: weatherImage,
+    image: projectImagesByTitle['Weather Forecast'],
   },
   {
     _id: '2',
@@ -74,7 +112,7 @@ const defaultProjects = [
     githubUrl: 'https://github.com/abhi-singh-01/Vaartaa',
     liveUrl: null,
     featured: true,
-    image: vaartaImage,
+    image: projectImagesByTitle.Vaarta,
   },
   personalizedLearningProject,
   pastebinProject,
@@ -141,6 +179,17 @@ const Projects = memo(() => {
   });
 
   const [projects, setProjects] = useState(defaultProjects);
+  const [enableCardHover, setEnableCardHover] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia('(hover: hover) and (pointer: fine)');
+    const updateHover = () => setEnableCardHover(media.matches);
+
+    updateHover();
+    media.addEventListener('change', updateHover);
+
+    return () => media.removeEventListener('change', updateHover);
+  }, []);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -189,16 +238,10 @@ const Projects = memo(() => {
               key={project._id}
               className={`project-card ${project.featured ? 'featured' : ''}`}
               variants={itemVariants}
-              whileHover={{ scale: 1.05, y: -10 }}
+              whileHover={enableCardHover ? { scale: 1.03, y: -6 } : undefined}
             >
               <div className="project-image">
-                {project.image ? (
-                  <img src={project.image} alt={project.title} loading="lazy" />
-                ) : (
-                  <div className="project-placeholder">
-                    <span>{project.title}</span>
-                  </div>
-                )}
+                <ProjectPreviewImage image={project.image} title={project.title} />
                 <div className="project-overlay">
                   <div className="project-links">
                     {project.githubUrl && (
