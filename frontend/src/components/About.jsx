@@ -83,7 +83,7 @@ const About = () => {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              Full-stack AI Builder
+              Full Stack Developer
             </motion.h3>
             <motion.p
               className="tagline"
